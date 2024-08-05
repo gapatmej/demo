@@ -33,7 +33,7 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/demo-app:latest .
-          docker tag ${{ secrets.DOCKER_USERNAME }}/demo-app:latest ${{ secrets.DOCKER_USERNAME }}/demo-app:${GITHUB_REF##*/v}
-          docker push ${{ secrets.DOCKER_USERNAME }}/demo-app:latest
-          docker push ${{ secrets.DOCKER_USERNAME }}/demo-app:${GITHUB_REF##*/v}
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/your-image-name:latest .
+          docker tag ${{ secrets.DOCKER_USERNAME }}/your-image-name:latest ${{ secrets.DOCKER_USERNAME }}/your-image-name:${GITHUB_REF##*/v}
+          docker push ${{ secrets.DOCKER_USERNAME }}/your-image-name:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/your-image-name:${GITHUB_REF##*/v}
