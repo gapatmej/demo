@@ -1,0 +1,41 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.3.3-SNAPSHOT'
+	id 'io.spring.dependency-management' version '1.1.6'
+    id 'pl.allegro.tech.build.axion-release' version '1.13.4'
+}
+
+group = 'com.example'
+scmVersion {
+    tag {
+        prefix = 'v'  // Prefijo para las etiquetas
+    }
+    versionIncrementer 'incrementMinorIfNotOnRelease'
+    nextVersion {
+        suffix = 'v'
+    }
+}
+
+// Asigna la versión del proyecto a scmVersion.version
+project.version = scmVersion.version
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+repositories {
+	mavenCentral()
+	maven { url 'https://repo.spring.io/snapshot' }
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
