@@ -8,7 +8,7 @@ plugins {
 group = 'com.example'
 scmVersion {
     tag {
-        prefix = 'v'  // Prefijo para las etiquetas
+        prefix = 'v'
     }
     versionIncrementer 'incrementMinorIfNotOnRelease'
     nextVersion {
